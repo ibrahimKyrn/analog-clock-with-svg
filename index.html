@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Analog Clock</title>
+    <style type="text/css">
+      body {
+        display: flex;
+        background-color: #0c091d;
+      }
+      svg {
+        margin: auto;
+      }
+      .small-lines {
+        stroke: rgba(169, 114, 255, 0.5);
+      }
+      .big-lines {
+        stroke: #a972ff;
+      }
+    </style>
+  </head>
+  <body>
+    <svg width="800" height="800">
+      <!-- Dakikalar icin cevresi 2*π*365= 2292,2
+            Dakika cizgilerinin kalinligi 2px hepsi 2*60=120px
+          Kalan bosluklar ise 2292,2-120=2172.2 . Kalan bosluklarin arasi ise 2172.2/60=36,20333 
+      -->
+      <circle
+        class="small-lines"
+        cx="400"
+        cy="400"
+        r="365"
+        stroke-width="20"
+        stroke-dasharray="2,36.20333"
+        fill="none"
+      ></circle>
+      <!-- 
+  Tam saatler icin 2*π*r= 2198 cevresi
+  Saatlerin cizgisinin kalinligi 8px hepsi ise 8*12=96
+  Kalan bosluklari 2198-96=2102 kalan bosluklarin 2012/12=175.16 diyerek aralik mesafesini buluyoruz.
+      -->
+      <circle
+        class="big-lines"
+        cx="400"
+        cy="400"
+        r="350"
+        stroke-width="50"
+        stroke-dasharray="8,175.16"
+        fill="none"
+      ></circle>
+    </svg>
+  </body>
+</html>
