@@ -18,6 +18,15 @@
       .big-lines {
         stroke: #a972ff;
       }
+      .hour-hand {
+        transform-origin: 400px 400px;
+      }
+      .minute-hand {
+        transform-origin: 400px 400px;
+      }
+      .second-hand {
+        transform-origin: 400px 400px;
+      }
     </style>
   </head>
   <body>
@@ -49,6 +58,46 @@
         stroke-dasharray="8,175.16"
         fill="none"
       ></circle>
+      <line
+        class="second-hand"
+        x1="400"
+        y1="400"
+        x2="400"
+        y2="50"
+        stroke="red"
+      ></line>
+      <line
+        class="minute-hand"
+        x1="400"
+        y1="400"
+        x2="400"
+        y2="150"
+        stroke="#E81C6F"
+        stroke-width="10"
+      ></line>
+      <line
+        class="hour-hand"
+        x1="400"
+        y1="400"
+        x2="400"
+        y2="190"
+        stroke="#E81C6F"
+        stroke-width="10"
+      ></line>
     </svg>
+
+    <script>
+      function timeFnc() {
+        let now = new Date();
+        let hourHand = document.querySelector(".hour-hand");
+        hourHand.style = `transform: rotate(${now.getHours() * 30}deg)`;
+        let minuteHand = document.querySelector(".minute-hand");
+        minuteHand.style = `transform: rotate(${now.getMinutes() * 6}deg)`;
+        let secondHand = document.querySelector(".second-hand");
+        secondHand.style = `transform: rotate(${now.getSeconds() * 6}deg)`;
+      }
+      setInterval(timeFnc, 1000);
+      timeFnc();
+    </script>
   </body>
 </html>
